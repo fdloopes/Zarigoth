@@ -1,0 +1,67 @@
+/**
+ * Aula Pratica 03 - Definicao da classe ManipuladorDeArquivos  
+ * 
+ * @author Felipe Marques
+ * @version 1.0 - 01/09/2015
+ * 
+ */
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Scanner;
+import java.util.ArrayList;
+
+public class ManipuladorDeArquivos {
+
+	/**
+	 * Este metodo faz a leitura de um arquivo texto.
+	 * @param caminho caminho completo do arquivo que deve ser lido.
+	 * @return um ArrayList contendo cada uma das linhas lidas no arquivo.
+	 * @throws IOException
+	 */
+	public static ArrayList<String> lerArquivoTexto(String caminho) throws IOException {
+		BufferedReader buffRead = new BufferedReader(new FileReader(caminho));
+		ArrayList<String> listaDeLinhas = new ArrayList<String>();
+		String linha = null;
+		
+		do {
+			linha = buffRead.readLine();
+			if (linha != null)
+				listaDeLinhas.add(linha);
+		} while(linha == null);
+		
+		buffRead.close();
+		return listaDeLinhas;
+	}
+
+	/**
+	 * Este metodo faz a escrita de um arquivo texto.
+	 * @param caminho caminho completo do arquivo que deve ser criado.
+	 * @param listaDeLinhas um ArrayList contendo todas as linhas que serao escritas no arquivo texto.
+	 * @throws IOException
+	 */
+	public static void escreverArquivoTexto(String caminho, ArrayList<String> listaDeLinhas) throws IOException {
+		// O seu trabalho e descobir como escrever um arquivo texto!
+	}
+	
+	/**
+	 * Este metodo faz a leitura de texto atraves da entrada padrao.
+	 * @return um ArrayList contendo cada uma das linhas lidas da entrada padrao.
+	 */
+	public static ArrayList<String> lerDadosDaEntradaPadrao() {
+		Scanner sc = new Scanner(System.in);
+		ArrayList<String> listaDeLinhas = new ArrayList<String>();
+		String linha = null;
+		
+		while (sc.hasNext()) {
+			linha = sc.nextLine();
+			if (linha != null)
+				listaDeLinhas.add(linha);
+		}
+		
+		return listaDeLinhas;
+	}
+}

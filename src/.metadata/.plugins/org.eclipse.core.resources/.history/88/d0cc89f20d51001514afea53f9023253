@@ -1,0 +1,19 @@
+import java.io.IOException;
+import java.util.HashMap;
+
+
+public class CatalogoDeCarros {
+	private HashMap<String, Carro> catalogo;
+	
+	
+	
+	public static void main(String[] args) throws IOException {
+		// Teste da leitura a partir de um arquivo texto
+		//System.out.println(ManipuladorDeArquivos.lerArquivoTexto("entrada.txt"));
+		
+		//Teste da leitura a partir da entrada padrao
+		for (String string : ManipuladorDeArquivos.lerDadosDaEntradaPadrao()) {
+			System.out.println(string);
+		}
+	}
+}

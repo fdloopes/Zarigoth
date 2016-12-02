@@ -1,0 +1,37 @@
+import java.io.IOException;
+import java.util.HashMap;
+
+
+public class CatalogoDeCarros {
+	private HashMap<String, Carro> catalogo;
+	
+	public CatalogoDeCarros() {
+		catalogo = new HashMap<String, Carro>();
+	}
+	
+	/**
+	 * Este metodo carrega um catalogo de carros a partir de uma arquivo texto.
+	 * @param caminho caminho completo do arquivo texto que contem o catalogo.
+	 */
+	public void carregaCatalogoDoArquivo(String caminho) {
+		//TODO: Voce deve implementar este metodo.
+		// Lembre de utilizar os metodos privados desta classe.
+	}
+	
+	/**
+	 * Metodo principal que determina como o programa sera executado.
+	 * @param args
+	 * @throws IOException
+	 */
+	public static void main(String[] args) throws IOException {
+		// Teste da leitura a partir de um arquivo texto
+		//System.out.println(ManipuladorDeArquivos.lerArquivoTexto("entrada.txt"));
+		
+		//Teste da leitura a partir da entrada padrao
+		/*
+		for (String string : ManipuladorDeArquivos.lerDadosDaEntradaPadrao()) {
+			System.out.println(string);
+		}
+		//*/
+	}
+}

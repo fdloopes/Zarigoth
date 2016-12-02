@@ -1,0 +1,84 @@
+/**
+ * Aula Pratica 03 - Definicao da classe Carro  
+ * 
+ * @author Felipe Marques
+ * @version 1.0 - 01/09/2015
+ * 
+ */
+public class Carro {
+	private String nome;
+	private float velocidade;
+	private float frenagem;
+	private float aceleracao;
+	private float dirigibilidade;
+	
+	/**
+	 * Metodo construtor da Classe Carro
+	 * @param nome o nome do caro.
+	 * @param velocidade a nota da velocidade do caro.
+	 * @param frenagem a nota da frenagem do caro.
+	 * @param aceleracao a nota da aceleracao do caro.
+	 * @param dirigibilidade a nota da dirigibilidade do caro.
+	 */
+	public Carro(String nome, float velocidade, float frenagem, float aceleracao, float dirigibilidade) {
+		this.nome = nome;
+		this.velocidade = velocidade;
+		this.frenagem = frenagem;
+		this.aceleracao = aceleracao;
+		this.dirigibilidade = dirigibilidade;
+	}
+	
+	/**
+	 * Pega o nome do carro.
+	 * @return o nome do caro.
+	 */
+	public String pegaNome() {
+		return nome;
+	}
+	
+	/**
+	 * Pega a nota da velocidade do carro.
+	 * @return a nota da velocidade do caro.
+	 */
+	public float pegaVelocidade() {
+		return velocidade;
+	}
+	
+	/**
+	 * Pega a nota da frenagem do carro.
+	 * @return a nota da frenagem do carro.
+	 */
+	public float pegaFrenagem() {
+		return frenagem;
+	}
+	
+	/**
+	 * Pega a nota da aceleracao do carro.
+	 * @return a nota da aceleracao do carro.
+	 */
+	public float pegaAceleracao() {
+		return aceleracao;
+	}
+	
+	/**
+	 * Pega a nota da dirigibilidade do carro.
+	 * @return a nota da dirigibilidade do carro.
+	 */
+	public float pegaDirigibilidade() {
+		return dirigibilidade;
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if (!(obj instanceof Carro))
+			return false;
+		if (obj == this)
+			return true;
+		return nome.equals( ((Carro) obj).pegaNome() );
+	}
+	
+	@Override
+	public String toString() {
+		return nome + ": " + velocidade + " (V) | " + frenagem + " (F) | " + aceleracao + " (A) | " + dirigibilidade + " (D)"; 
+	}
+}

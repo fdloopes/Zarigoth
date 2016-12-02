@@ -1,0 +1,114 @@
+/**
+ * Aula Pratica 03 - Definicao da classe CatalogoDeCarros  
+ * 
+ * @author Felipe Marques
+ * @version 1.0 - 01/09/2015
+ * 
+ */
+
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.TreeSet;
+
+
+public class CatalogoDeCarros {
+	private HashMap<String, Carro> catalogo;
+	
+	public CatalogoDeCarros() {
+		catalogo = new HashMap<String, Carro>();
+	}
+	
+	/**
+	 * Este metodo carrega um catalogo de carros a partir da entrada padrao.
+	 */
+	public void carregaCatalogo() {
+		Carro carro;
+		for (String linha : ManipuladorDeArquivos.lerDadosDaEntradaPadrao()) {
+			carro = interpretadorDeLinha(linha);
+			if (carro != null) {
+				catalogo.put(carro.pegaNome(), carro);
+			} else {
+				System.exit(1); // Erro na interpretacao da descricao do carro
+			}
+		}
+	}
+	
+	/**
+	 * Este metodo carrega um catalogo de carros a partir de uma arquivo texto.
+	 * @param caminho caminho completo do arquivo texto que contem o catalogo.
+	 */
+	public void carregaCatalogoDoArquivo(String caminho) {
+		//TODO: Voce deve implementar este metodo.
+		// Lembre de utilizar os metodos privados desta classe.
+	}
+
+	/**
+	 * Lista todos os carros cadastrados no catalogo.
+	 */
+	public void listarCatalogo() {
+		System.out.println("\nLista de Carros Cadastrados:");
+		for (Carro carro : catalogo.values()) {
+			System.out.println(carro);
+		}
+	}
+	
+	/**
+	 * Lista todos os carros cadastrados no catalogo em ordem alfabetica.
+	 */
+	public void listarCatalogoEmOrdemAlfabetica() {		
+		System.out.println("\nLista de Carros Cadastrados:");
+		for (String nome : catalogo.keySet()) {
+			System.out.println(catalogo.get(nome));
+		}
+	}
+	
+	/**
+	 * Interpreta um linha (String) com a descricao do carro.
+	 * @param linha a linha com a descricao do carro que deve ser interpretada. 
+	 * @return um objeto Carro com seus respectivos dados.
+	 */
+	private Carro interpretadorDeLinha(String linha) {
+		String[] infoCarro = linha.split(";");
+
+		if (infoCarro.length == 6) {
+			Carro carro = new Carro(infoCarro[0],
+					                new Float(infoCarro[1]).floatValue(),
+					                new Float(infoCarro[2]).floatValue(),
+					                new Float(infoCarro[3]).floatValue(),
+					                new Float(infoCarro[4]).floatValue(),
+					                new Float(infoCarro[5]).floatValue()
+					                );
+			return carro;
+		} else {
+			System.out.println("\nERRO: A descricao do carro nao esta no padrao correto.");
+			System.out.println("\t linha: '"+ linha +"'\n");
+		}
+		
+		return null;
+	}
+	
+	/**
+	 * Metodo principal que determina como o programa sera executado.
+	 * @param args
+	 * @throws IOException
+	 */
+	public static void main(String[] args) throws IOException {
+		// Teste da leitura a partir de um arquivo texto
+		//System.out.println(ManipuladorDeArquivos.lerArquivoTexto("entrada.txt"));
+		
+		//Teste da leitura a partir da entrada padrao
+		/*
+		for (String linha : ManipuladorDeArquivos.lerDadosDaEntradaPadrao()) {
+			System.out.println(linha);
+		}
+		//*/
+		
+		//Teste da Classe CatalogoDeCarros
+		//*
+		CatalogoDeCarros catalogo = new CatalogoDeCarros();
+		catalogo.carregaCatalogo();
+		catalogo.listarCatalogo();
+		catalogo.listarCatalogoEmOrdemAlfabetica();
+		//*/
+	}
+}

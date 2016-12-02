@@ -1,0 +1,56 @@
+/**
+ * Aula Pratica 03 - Definicao da classe Carro  
+ * 
+ * @author Felipe Marques
+ * @version 1.0 - 01/09/2015
+ * 
+ */
+public class Carro {
+	private String nome;
+	private float velocidade;
+	private float frenagem;
+	private float aceleracao;
+	private float dirigibilidade;
+	
+	public Carro(String nome, float velocidade, float frenagem, float aceleracao, float dirigibilidade) {
+		this.nome = nome;
+		this.velocidade = velocidade;
+		this.frenagem = frenagem;
+		this.aceleracao = aceleracao;
+		this.dirigibilidade = dirigibilidade;
+	}
+	
+	public String pegaNome() {
+		return nome;
+	}
+	
+	public float pegaVelocidade() {
+		return velocidade;
+	}
+	
+	public float pegaFrenagem() {
+		return frenagem;
+	}
+	
+	public float pegaAceleracao() {
+		return aceleracao;
+	}
+	
+	public float pegaDirigibilidade() {
+		return dirigibilidade;
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if (!(obj instanceof Carro))
+			return false;
+		if (obj == this)
+			return true;
+		return nome.equals( ((Carro) obj).pegaNome() );
+	}
+	
+	@Override
+	public String toString() {
+		return nome + ": " + velocidade + " (V) | " + frenagem + " (F) | " + aceleracao + " (A) | " + dirigibilidade + " (D)"; 
+	}
+}

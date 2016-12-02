@@ -1,0 +1,6 @@
+
+public class CatalogoDeCarros {
+	public static void main(String[] args) {
+		ManipuladorDeArquivos.lerArquivoTexto("../entrada.txt");
+	}
+}
